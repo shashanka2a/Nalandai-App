@@ -4,6 +4,11 @@
   "description": "Self-reliant, customizable, and secure AI for code generation",
   "icons": [
     {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
       "src": "/favicon-16x16.png",
       "sizes": "16x16",
       "type": "image/png"
@@ -19,7 +24,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#6366f1",
+  "theme_color": "#2563eb",
   "background_color": "#ffffff",
   "display": "standalone",
   "start_url": "/"

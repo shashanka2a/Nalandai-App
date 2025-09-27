@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favicon Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .favicon-preview { display: flex; gap: 20px; align-items: center; }
+        .favicon-preview div { text-align: center; }
+        canvas { border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <h1>Nalandai Favicon Generator</h1>
+    <p>This page can be used to generate PNG favicons from the SVG favicon.</p>
+    
+    <div class="favicon-preview">
+        <div>
+            <h3>16x16</h3>
+            <canvas id="favicon16" width="16" height="16"></canvas>
+        </div>
+        <div>
+            <h3>32x32</h3>
+            <canvas id="favicon32" width="32" height="32"></canvas>
+        </div>
+        <div>
+            <h3>180x180 (Apple Touch)</h3>
+            <canvas id="favicon180" width="180" height="180"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Create the crown icon programmatically
+        function drawCrown(canvas, size) {
+            const ctx = canvas.getContext('2d');
+            const scale = size / 32;
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, size, size);
+            
+            // Create gradient background
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#2563eb');
+            gradient.addColorStop(1, '#7c3aed');
+            
+            // Draw rounded rectangle background
+            ctx.fillStyle = gradient;
+            ctx.roundRect(0, 0, size, size, size * 0.25);
+            ctx.fill();
+            
+            // Draw crown
+            ctx.strokeStyle = 'white';
+            ctx.fillStyle = 'white';
+            ctx.lineWidth = 1.2 * scale;
+            ctx.lineJoin = 'round';
+            
+            // Crown shape
+            ctx.beginPath();
+            ctx.moveTo(6 * scale, 14 * scale);
+            ctx.lineTo(16 * scale, 8 * scale);
+            ctx.lineTo(26 * scale, 14 * scale);
+            ctx.lineTo(22 * scale, 18 * scale);
+            ctx.lineTo(16 * scale, 22 * scale);
+            ctx.lineTo(10 * scale, 18 * scale);
+            ctx.lineTo(6 * scale, 14 * scale);
+            ctx.fill();
+            ctx.stroke();
+            
+            // Crown center line
+            ctx.beginPath();
+            ctx.moveTo(16 * scale, 8 * scale);
+            ctx.lineTo(16 * scale, 22 * scale);
+            ctx.stroke();
+            
+            // Crown horizontal line
+            ctx.beginPath();
+            ctx.moveTo(6 * scale, 14 * scale);
+            ctx.lineTo(16 * scale, 18 * scale);
+            ctx.lineTo(26 * scale, 14 * scale);
+            ctx.stroke();
+            
+            // Crown jewels
+            ctx.fillStyle = 'white';
+            ctx.beginPath();
+            ctx.arc(12 * scale, 16 * scale, 1.5 * scale, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.arc(20 * scale, 16 * scale, 1.5 * scale, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.arc(16 * scale, 12 * scale, 1.5 * scale, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+        
+        // Draw favicons
+        drawCrown(document.getElementById('favicon16'), 16);
+        drawCrown(document.getElementById('favicon32'), 32);
+        drawCrown(document.getElementById('favicon180'), 180);
+    </script>
+</body>
+</html>
