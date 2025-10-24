@@ -286,39 +286,6 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          {/* Trust Indicators */}
-          <motion.div 
-            className="flex flex-wrap justify-center items-center gap-6 mb-12 opacity-60"
-            {...fadeInUp}
-            transition={{ delay: 0.2 }}
-          >
-            <motion.div 
-              className="flex items-center space-x-2"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Shield className="h-4 w-4 text-green-600" />
-              <span className="text-sm text-muted-foreground">Enterprise Security</span>
-            </motion.div>
-            <Separator orientation="vertical" className="h-4" />
-            <motion.div 
-              className="flex items-center space-x-2"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Award className="h-4 w-4 text-blue-600" />
-              <span className="text-sm text-muted-foreground">SOC 2 Compliant</span>
-            </motion.div>
-            <Separator orientation="vertical" className="h-4" />
-            <motion.div 
-              className="flex items-center space-x-2"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Globe className="h-4 w-4 text-violet-600" />
-              <span className="text-sm text-muted-foreground">Open Source Foundation</span>
-            </motion.div>
-          </motion.div>
 
           <motion.div 
             className="text-center"
@@ -327,15 +294,6 @@ export default function HomePage() {
             animate="animate"
           >
             <motion.div className="relative mb-8" variants={fadeInUp}>
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Badge variant="secondary" className="mb-6 bg-gradient-to-r from-blue-100 to-violet-100 dark:from-blue-900/30 dark:to-violet-900/30 text-violet-700 dark:text-violet-300 border-violet-200">
-                  <Clock className="h-4 w-4 mr-2" />
-                  Early Access • Limited Spots Available
-                </Badge>
-              </motion.div>
               
               <motion.h1 
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground via-blue-600 to-violet-600 bg-clip-text text-transparent leading-tight"
@@ -499,86 +457,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Social Proof / Testimonials */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-7xl mx-auto">
-          <motion.div 
-            className="text-center mb-12"
-            {...fadeInUp}
-            transition={{ delay: 0.2 }}
-          >
-            <h2 className="text-2xl font-semibold mb-4">Trusted by Forward-Thinking Teams</h2>
-            <p className="text-muted-foreground">Join industry leaders who are already building with sovereign AI</p>
-          </motion.div>
-          
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            {[
-              {
-                quote: "Nalandai gives us complete control over our AI models while maintaining enterprise-grade security. Game-changing for our development workflow.",
-                author: "Sarah Chen",
-                role: "CTO, TechFlow Industries",
-                avatar: "SC"
-              },
-              {
-                quote: "The cost savings alone justify the switch, but the customization capabilities are what make this truly powerful for our use case.",
-                author: "Michael Rodriguez",
-                role: "Head of Engineering, DataStream",
-                avatar: "MR"
-              },
-              {
-                quote: "Finally, an AI solution that doesn't compromise on data sovereignty. Our compliance team loves it as much as our developers do.",
-                author: "Emily Johnson",
-                role: "VP Engineering, SecureLogic",
-                avatar: "EJ"
-              }
-            ].map((testimonial, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                whileHover={{ y: -5, scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Card className="p-6 bg-card border border-border rounded-xl">
-                  <div className="flex items-start space-x-4">
-                    <motion.div 
-                      className="w-12 h-12 bg-gradient-to-r from-blue-600 to-violet-600 rounded-full flex items-center justify-center text-white font-semibold text-sm"
-                      whileHover={{ rotate: 5 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      {testimonial.avatar}
-                    </motion.div>
-                    <div className="flex-1">
-                      <div className="flex items-center mb-2">
-                        {[...Array(5)].map((_, i) => (
-                          <motion.div
-                            key={i}
-                            initial={{ opacity: 0, scale: 0 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.5 + i * 0.1 }}
-                          >
-                            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                          </motion.div>
-                        ))}
-                      </div>
-                      <p className="text-muted-foreground mb-4 italic">&ldquo;{testimonial.quote}&rdquo;</p>
-                      <div>
-                        <div className="font-semibold">{testimonial.author}</div>
-                        <div className="text-sm text-muted-foreground">{testimonial.role}</div>
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
 
       {/* Problem Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
